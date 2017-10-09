@@ -15,7 +15,7 @@ import rs.aleph.android.example13.R;
 // Each activity extends Activity class
 public class SecondActivity extends Activity {
 
-    private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 0;
+    private static final int PERMISSIONS_REQUEST_INTERNET = 0;
 
     // onCreate method is a lifecycle method called when he activity is starting
     @Override
@@ -34,13 +34,13 @@ public class SecondActivity extends Activity {
         // but for the sake of explanation ...)
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
 
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_CONTACTS)) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.INTERNET)) {
 
                 // Show an explanation to the user *asynchronously* -- don't block this thread waiting for the user's response!
 
             } else {
 
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, PERMISSIONS_REQUEST_READ_CONTACTS);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET}, PERMISSIONS_REQUEST_INTERNET);
 
                 // PERMISSIONS_REQUEST_READ_CONTACTS is an app-defined int constant. The callback method gets the result of the request.
             }
@@ -128,7 +128,7 @@ public class SecondActivity extends Activity {
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
-            case PERMISSIONS_REQUEST_READ_CONTACTS: {
+            case PERMISSIONS_REQUEST_INTERNET: {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
